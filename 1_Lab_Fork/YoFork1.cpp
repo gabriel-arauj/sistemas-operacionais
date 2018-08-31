@@ -16,13 +16,12 @@ int main()
    string sIdentifier;
    int    iStackVariable = 20;
 
-   pid_t pID = vfork();
+   pid_t pID = fork();
    if (pID == 0)                // child
    {
       // Code only executed by child process
-
       sIdentifier = "Child Process: ";
-      
+      sleep(10);
       globalVariable++;
       iStackVariable++;
     }
@@ -36,7 +35,6 @@ int main()
     {
       // Code only executed by parent process
       sIdentifier = "Parent Process:";
-      sleep(10);
     }
 
     // Code executed by both parent and child.
@@ -44,5 +42,4 @@ int main()
     cout << sIdentifier;
     cout << " Global variable: " << globalVariable;
     cout << " Stack variable: "  << iStackVariable << endl;
-    exit(0);
 }

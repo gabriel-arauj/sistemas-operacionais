@@ -29,7 +29,8 @@ int main()
       id = "B";
     }
 
-    cout << id;
+    cout << id << " " << getpid();
     cout << " X: " << x;
     cout << " Y: "  << Y << endl;
+    sleep(10);
 }
